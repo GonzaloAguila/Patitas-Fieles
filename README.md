@@ -1,1 +1,1 @@
-# undefined
+# Proyecto caritativo de práctica.
