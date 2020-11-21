@@ -1,18 +1,16 @@
 import React, { Fragment } from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import {Navbar, Carousel, Row, Container, Card, CardGroup } from "react-bootstrap";
-import "bootswatch/dist/materia/bootstrap.min.css";
+import Navbar from './Navbar'
+import Jumbo from "./Jumbo";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
-    <Container>
-      <Container>
-        <Navbar expand="lg" variant="light" bg="light">
-          <Navbar.Brand href="#">Navbar</Navbar.Brand>
-        </Navbar>
-      </Container>
-    </Container>
+    <Fragment>
+      <Navbar/>
+      <Jumbo/>
+      <Footer/>
+    </Fragment>
   );
 };
 
