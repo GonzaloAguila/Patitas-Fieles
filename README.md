@@ -2,24 +2,29 @@
 # Proyecto caritativo de práctica.
 
 La idea es realizar una web-app que facilite el proceso completo de adopción de un perro.
-
 </br>
-
 Las tecnologías que definí a utilizar, por el momento, son:
 </br>
 Para el Back:
 </br>
 *NodeJS
+</br>
 *PosgreSQL
+</br>
 *Express
+</br>
 *Passport
 </br>
 Para el front:
 </br>
 *React
+</br>
 *React-Redux
+</br>
 *React-Redux-Hooks
+</br>
 *React-Router
+</br>
 *CSS puro para practicar, ocasionalmente algo de Material UI.
 </br>
 
