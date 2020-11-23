@@ -5,6 +5,7 @@ La idea es realizar una web-app que facilite el proceso completo de adopción de
 </br>
 Las tecnologías que definí a utilizar, por el momento, son:
 </br>
+</br>
 Para el Back:
 </br>
 *NodeJS
@@ -14,6 +15,7 @@ Para el Back:
 *Express
 </br>
 *Passport
+</br>
 </br>
 Para el front:
 </br>
