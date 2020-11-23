@@ -1,6 +1,8 @@
 # Patitas Fieles
 # Proyecto caritativo de práctica.
-
+![alt text](https://i.imgur.com/oIJ4iJc.jpg)
+</br>
+</br>
 La idea es realizar una web-app que facilite el proceso completo de adopción de un perro.
 </br>
 Las tecnologías que definí a utilizar, por el momento, son:
@@ -27,7 +29,7 @@ Para el front:
 </br>
 *React-Router
 </br>
-*CSS puro para practicar, ocasionalmente algo de Material UI.
+*CSS puro para practicar (flexbox), ocasionalmente algo de Material UI.
 </br>
 
 Es un proyecto que estoy trabajando en mis tiempos libres,  por lo que espero 
