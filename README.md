@@ -1,4 +1,4 @@
-# Patitas Fieles // 
+# Patitas Fieles
 # Proyecto caritativo de práctica.
 
 La idea es realizar una web-app que facilite el proceso completo de adopción de un perro.
