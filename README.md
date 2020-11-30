@@ -1,6 +1,6 @@
 # Patitas Fieles
 # Proyecto caritativo de práctica.
-![alt text](https://i.imgur.com/oIJ4iJc.jpg)
+![alt text](https://i.imgur.com/0ypT1aS.png)
 </br>
 </br>
 La idea es realizar una web-app que facilite el proceso completo de adopción de un perro.
