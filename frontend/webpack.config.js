@@ -12,7 +12,7 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /jsx?$/,
+          test: /\.js$|jsx/,
           exclude: /(node_modules|bower_components)/,
           loader: "babel-loader",
           query: {
@@ -23,6 +23,17 @@ module.exports = {
           test: /\.css$/,
           loader: "style-loader!css-loader",
         },
+        {
+          test: /\.(jpg|svg|png|jpeg)$/ , 
+          loader:"file-loader"
+        },
+        {
+          test: /\.(html)$/ , 
+          loader:"html-loader"
+        },
+        { test: /\.svg$/,
+          use: ['@svgr/webpack'],
+        }
       ],
     },
     devtool: "source-map",
