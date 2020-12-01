@@ -1,13 +1,15 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import adoptar from "../img/adoptar.jpg"
 
-const Footer = () => {
+const Adoptar = () => {
   return (
     <Fragment>
-      <div className="footer">
+      <div className="adoptar-container">
+        ADOPTAR
       </div>
     </Fragment>
   );
 };
 
-export default Footer;
+export default Adoptar;
