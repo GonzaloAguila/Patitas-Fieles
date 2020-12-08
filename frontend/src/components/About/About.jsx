@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import abouticon from "../img/abouticon.png"
+import abouticon from "../../img/abouticon.png"
+import "./style.css"
 
 const About = () => {
   return (

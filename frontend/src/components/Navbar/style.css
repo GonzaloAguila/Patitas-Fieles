@@ -1,0 +1,111 @@
+
+.fa-dog {
+    padding-right: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.fa-paw {
+  padding-right: 5px;
+  color: white;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.navcontainer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    z-index: 20;
+}
+
+.nav-block {
+   height: 100%;
+   display: flex;
+   list-style-type: none;
+   justify-content: center;
+   align-items: center;
+   background-color: #7D84B2;
+   margin: 0;
+}
+
+.logo {
+    width: 30%;
+    display: flex;
+}
+
+.logo-content {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.items {
+  width: 70%;
+  justify-content: space-around;
+}
+
+.log {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.navcontainer > ul > li {
+  font-size: 1em; 
+  color: #FFF;
+  text-decoration: none;
+  padding: 5px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.item:before, .item:after
+{
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  top: 0px;
+  transition: all 0.3s;
+}
+
+.item:before
+{
+  content: '(';
+  left: -10px;
+  transform: translateX(10px);
+}
+
+.item:after
+{
+  content: ')';
+  right: -10px;
+  transform: translateX(-20px);
+}
+
+.item:hover:before, .item:hover:after
+{
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.item:hover {
+  color: #ffffff
+ }
+
+
+.login{
+  background-color: #DBF4A7;
+  border-radius: 8px;
+  color: black;
+  border: 1px solid grey;
+  cursor:pointer;
+  font-weight:bold;
+  padding: 8px;
+  margin: 0 5px;
+}

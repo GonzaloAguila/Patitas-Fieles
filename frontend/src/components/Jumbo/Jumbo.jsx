@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import SvgComponent from "./SvgComponent"
-import bulldog from "../img/bulldog.png"
+import bulldog from "../../img/bulldog.png"
+import "./style.css"
+
 const Jumbo = () => {
   return (
      <div className="jumbo-container">
