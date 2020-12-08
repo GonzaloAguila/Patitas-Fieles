@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
+import Footer from "./Footer/Footer";
 import Jumbo from "./Jumbo/Jumbo";
-import About from "./About/About";
+import Navbar from "./Navbar/Navbar";
 
 const Home = () => {
   return (
     <Fragment>
+      <Navbar/>
       <Jumbo/>
-      <About/>
+      <Footer/>
     </Fragment>
   );
 };

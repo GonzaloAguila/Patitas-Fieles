@@ -20,6 +20,11 @@
     z-index: 20;
 }
 
+.navcontainer a {
+  text-decoration: none;
+  color: #ffffff
+}
+
 .nav-block {
    height: 100%;
    display: flex;
@@ -54,7 +59,7 @@
 }
 
 .navcontainer > ul > li {
-  font-size: 1em; 
+  font-size: 1em ; 
   color: #FFF;
   text-decoration: none;
   padding: 5px;

@@ -8,13 +8,13 @@ const Navbar = () => {
     <Fragment>
       <div className="navcontainer">
         <div className="nav-block logo logo-content">
-          PATITAS FIELES
+          <Link to="/">PATITAS FIELES</Link> 
         </div>
         <ul className="nav-block items">
-          <li className="item"><i className="fas fa-dog"></i>Quienes Somos</li>
-          <li className="item"><i className="fas fa-dog"></i>Adoptar</li>
-          <li className="item"><i className="fas fa-dog"></i>Donar</li>
-          <li className="item"><i className="fas fa-dog"></i>Denuncias</li>
+          <li  className="item"><i className="fas fa-dog"></i><Link to="/about">Quienes Somos</Link></li>
+          <li className="item"><i className="fas fa-dog"></i><Link to="/adoptar">Adoptar</Link></li>
+          <li className="item"><i className="fas fa-dog"></i><Link to="/donar">Donar</Link></li>
+          <li className="item"><i className="fas fa-dog"></i><Link to="/denuncias">Denuncias</Link></li>
         </ul>
       <ul className="nav-block log">
           <button className="login">Log in</button>

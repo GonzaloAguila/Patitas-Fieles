@@ -20,5 +20,10 @@ import {
     return axios.get("/api/dogs/getDogs")
     .then((res) => dispatch(fetchDogsCreator(res.data))
  )};
-  
+ 
+ export const fetchDog = (name) => (dispatch) => {
+   console.log("estoy aca")
+  return axios.get(`/api/dogs/${name}`)
+  .then((res) => dispatch(fetchSingleDog(res.data))
+)};
   

@@ -6,17 +6,19 @@ import Adoptar from '../components/Adoptar/Adoptar';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import SingleDogCont from '../components/SingleDog/SingleDogCont';
+import About from '../components/About/About';
+import Login from '../components/Login/About';
 
 export default function Main () {
     return (
         <Fragment>
-          <Route path="/" component={Navbar}/>
             <Switch>
                 <Route exact path="/" component={Home}/>
+                <Route exact path="/login" component={Login}/>
                 <Route exact path="/adoptar" component={Adoptar}/>
+                <Route exact path="/about" component={About}/>
                 <Route path="/adoptar/:dogname" component={SingleDogCont} />
             </Switch>
-          <Route path="/" component={Footer}/>
         </Fragment>
     )
 }

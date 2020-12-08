@@ -18,7 +18,7 @@ const Jumbo = () => {
         <p className="jumbo-right-title">¡Bienvenid@!</p>
         <p className="jumbo-right-text">Somos una organización sin fines de lucro que facilita el proceso de adopción de perritos callajeros.</p>
         <div className="jumbo-right-btn-container">
-        <button className="jumbo-right-btn">ADOPTAR</button>
+        <Link to="/adoptar" className="jumbo-right-btn">ADOPTAR</Link>
         </div>
         </div>
      </div>
