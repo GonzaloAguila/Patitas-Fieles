@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-const userRoutes = require("./users");
+//Archivos de rutas individuales
+const dogRoutes = require("../routes/dogs")
+const userRoutes = require("../routes/dogs")
 
-router.use("/user", userRoutes);
+router.use("/dogs", dogRoutes)
+router.use("/users", userRoutes)
 
 
 module.exports = router;

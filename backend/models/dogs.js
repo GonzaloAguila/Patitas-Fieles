@@ -1,21 +1,21 @@
 const mongoose = require("mongoose")
 
-const user = new mongoose.Schema({
+const dog = new mongoose.Schema({
     name: {
         type:String
-    },
-    lastname: {
-        type:String,
     },
     age: {
         type:Number
     },
-    password: {
+    size: {
         type:String,
     },
-    email: {
+    img: {
+        type:String,
+    },
+    gender: {
         type:String,
     }
 })
 
-module.exports = User = mongoose.model("user", user)
+module.exports = Dog = mongoose.model("dog", dog)

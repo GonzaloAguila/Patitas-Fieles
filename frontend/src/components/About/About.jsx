@@ -1,10 +1,14 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import abouticon from "../img/abouticon.png"
+import abouticon from "../../img/abouticon.png"
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
+import "./style.css"
 
 const About = () => {
   return (
     <Fragment>
+      <Navbar/>
       <div className="about-container">
           <div className="about-left">
               <div className="about-img-container">
@@ -18,6 +22,7 @@ const About = () => {
             </p>
           </div>
       </div>
+      <Footer/>
     </Fragment>
   );
 };

@@ -4,14 +4,20 @@ const morgan = require("morgan");
 const api = require("./api/routes");
 const app = express();
 const db = require("./db");
+
 // Passport
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const sessions = require("express-session");
 const localStrategy = require("passport-local").Strategy;
 
+//MongoAtlas connection
+const connectDB = require("./db")
+connectDB()
+//
+
 app.use(express.static(path.join(__dirname, "/public")));
-app.use(express.json());
+app.use(express.json({ extended: false}));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -71,6 +77,4 @@ app.get("/*", (req, res) => {
 });
 
 
-db.sync({ force: false }).then(() => {
-  app.listen(3004, () => console.log("Escuchando en puerto 3004"));
-});
+app.listen(3004, () => console.log("Escuchando en puerto 3004"));

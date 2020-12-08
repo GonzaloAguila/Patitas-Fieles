@@ -1,27 +1,25 @@
-const router = require("express").Router();
-const passport = require("passport");
+const express = require("express")
 const User = require("../../models/users")
+const router = express.Router()
 
-router.post("/register", (req, res) => {
-  User.create(req.body)
-    .then((user) => {
-      res.status(200).send(user);
-    })
-    .catch(() => res.sendStatus(401));
-});
+//postear un nuevo usuario
+router.post("/newUser", async (req,res) => {
+    let newUser = new User(req.body)
+    await newUser.save()
+    res.send(newUser)
+})
 
-router.post("/login", passport.authenticate("local"), (req, res) => {
-  res.send(req.user);
-});
+//traer todos los usuarios
+router.get("/getUsers", async (req,res) => {
+    let allUsers = await User.find({})
+    res.send(allUsers)
+})
 
-router.post("/logout", (req, res) => {
-  req.logout();
-  res.sendStatus(200);
-});
+//traer un user por nombre
+router.get("/:name", async (req,res) => {
+    let singleUser = await User.findOne({name : req.params.name})
+    singleUser ? res.send(singleUser) 
+               : res.send('No existe ningún usuario con ese nombre')
+})
 
-router.get("/me", (req, res) => {
-  if (req.isAuthenticated()) res.send(req.user);
-  else res.send({});
-});
-
-module.exports = router;
+module.exports = router
