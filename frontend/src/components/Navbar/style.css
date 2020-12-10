@@ -107,7 +107,7 @@
 .login{
   background-color: #DBF4A7;
   border-radius: 8px;
-  color: black;
+  color: black !important;
   border: 1px solid grey;
   cursor:pointer;
   font-weight:bold;

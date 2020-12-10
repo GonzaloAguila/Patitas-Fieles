@@ -4,6 +4,7 @@ import SingleDog from "./SingleDog"
 import "./style.css"
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import patitas from "../../img/patitas.png"
 
 const SingleDogCont = ({history, match}) => {
 

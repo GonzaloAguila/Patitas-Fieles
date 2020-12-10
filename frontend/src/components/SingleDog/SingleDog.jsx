@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchDog} from "../../../redux/action-creators/dog-actions";
 import { Link } from "react-router-dom";
 import "./style.css"
-
+import patitas from "../../img/patitas.png"
 
 const SingleDog = ({match, history}) => {
 

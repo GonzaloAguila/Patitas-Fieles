@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import Navbar from "../Navbar/Navbar"
+import Footer from "../Footer/Footer"
 import { Link } from "react-router-dom";
 import "./style.css"
 
@@ -7,7 +9,7 @@ const Login = () => {
     <Fragment>
      <div className="box">
        <div className="imgBx">
-        <img src="https://images.pexels.com/photos/3671283/pexels-photo-3671283.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt=""/>
+        <img src="https://images.pexels.com/photos/3790942/pexels-photo-3790942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
        </div>
        <div className="contentBx">
         <div className="formBx">
@@ -25,7 +27,7 @@ const Login = () => {
               <label><input type="checkbox" name=""/>Recordarme</label>
             </div>
             <div className="inputBx">
-              <input type="submit" value="Sign in"/>
+              <input type="submit" value="Ingresar"/>
             </div>
             <div className="inputBx">
               <p>¿No tenés una cuenta? <a href="">Registrarse</a></p> 
@@ -39,6 +41,7 @@ const Login = () => {
         </div>
        </div>
      </div>
+     <Footer></Footer>
     </Fragment>
   );
 };
