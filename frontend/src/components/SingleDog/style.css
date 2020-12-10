@@ -116,3 +116,12 @@
 .single-dog-bottom > form {
   padding-top: 2rem;
 }
+
+.nextbtn {
+  border: 1px solid black;
+  background-color: #dbf4a7;
+  outline:none;
+  height: 40px;
+  width: 30px;
+  border: none;
+}
