@@ -17,7 +17,7 @@ export default function Main () {
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/adoptar" component={Adoptar}/>
                 <Route exact path="/about" component={About}/>
-                <Route path="/adoptar/:dogname" component={SingleDogCont} />
+                <Route exact path="/adoptar/:dogname" component={SingleDogCont} />
             </Switch>
         </Fragment>
     )

@@ -3,22 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchDog} from "../../../redux/action-creators/dog-actions";
 import { Link } from "react-router-dom";
 import "./style.css"
-import patitas from "../../img/patitas.png"
 
-const SingleDog = ({match, history}) => {
 
-const dispatch = useDispatch();
-const { selectedDog } = useSelector((state) => state.dogsReducer);
-
-useEffect(() => {
-  dispatch(fetchDog(match.params.dogname))
-}, []);
-
+const SingleDog = ({selectedDog, nextDog}) => {
+  console.log(selectedDog)
   return (
     <Fragment>
       {selectedDog ?  
       <section className="single-dog-main">
-      {/* <h3 className="volver"><Link to="/adoptar">Volver</Link></h3> */}
       <div className="single-dog-container">
         <div className="single-dog-img-cont">
           <img src={selectedDog.img} className="single-dog-img" alt=""/>
@@ -33,6 +25,9 @@ useEffect(() => {
         </div>
         </div>
       </div>
+       <Link to={`/adoptar/${selectedDog.name}`}>
+      <button className="hvr-grow-shadow nextbtn" onClick={(e) => nextDog(e,selectedDog.name)}><i class="fas fa-angle-right"></i></button>
+      </Link>
       <div className="single-dog-bottom">
           <h3>¿Me adoptás?</h3>
           <h5>Dejanos tus datos y a la brevedad nos pondremos en contacto con vos
