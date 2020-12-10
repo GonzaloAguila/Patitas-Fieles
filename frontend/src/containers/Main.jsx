@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import SingleDogCont from '../components/SingleDog/SingleDogCont';
 import About from '../components/About/About';
-import Login from '../components/Login/About';
+import Login from '../components/Login/Login';
 
 export default function Main () {
     return (

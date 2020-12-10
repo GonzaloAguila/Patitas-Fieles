@@ -17,8 +17,8 @@ const Navbar = () => {
           <li className="item"><i className="fas fa-dog"></i><Link to="/denuncias">Denuncias</Link></li>
         </ul>
       <ul className="nav-block log">
-          <button className="login">Log in</button>
-          <button className="login">Registrarse</button>
+          <Link to="/login" className="login">Log in</Link>
+          <Link to="/register" className="login">Registrarse</Link>
       </ul>
       </div>
     </Fragment>
