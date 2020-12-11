@@ -2,7 +2,7 @@
 # Proyecto caritativo de práctica.
 ![alt text](https://i.imgur.com/kdUxozw.png)
 ![alt text](https://i.imgur.com/dTR1PbU.png)
-![alt text](https://i.imgur.com/P1Pd2ei.png)
+![alt text](https://i.imgur.com/UQnx6e8.png)
 ![alt text](https://i.imgur.com/KuBmd2y.png)
 </br>
 </br>
