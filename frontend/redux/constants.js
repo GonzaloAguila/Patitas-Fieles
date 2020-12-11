@@ -1,2 +1,5 @@
 export const FETCH_DOGS = "FETCH_DOGS"
+export const FETCH_FEMALE_DOGS = "FETCH_FEMALE_DOGS"
+export const FETCH_MALE_DOGS = "FETCH_MALE_DOGS"
 export const FETCH_DOG = "FETCH_DOG"
+export const FETCH_ONE_DOG = "FETCH_ONE_DOG"

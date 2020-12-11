@@ -1,11 +1,14 @@
 import {
     FETCH_DOGS,
-    FETCH_DOG
+    FETCH_DOG,
+    FETCH_MALE_DOGS,
+    FETCH_FEMALE_DOGS,
+    FETCH_ONE_DOG
   } from "../constants";
   
   const initialState = {
     dogs: [],
-    selectedDog: {}
+    selectedDog: {},
   };
   
   export default (state = initialState, action) => {
@@ -14,6 +17,12 @@ import {
         return { ...state, dogs: action.data };
       case FETCH_DOG:
         return { ...state, selectedDog: action.data };
+      case FETCH_FEMALE_DOGS:
+        return { ...state, dogs: action.data };
+      case FETCH_MALE_DOGS:
+        return { ...state, dogs: action.data };  
+      case FETCH_ONE_DOG:
+          return { ...state, dogs: [action.data]};    
       default:
         return state;
     }
