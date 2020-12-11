@@ -24,6 +24,10 @@ const SingleDogCont = ({history, match}) => {
     })
   }, []); 
 
+  useEffect(() => {
+     history.push(`/adoptar/${selectedDog.name}`)
+  }, [selectedDog])
+
    //Array circular para ir cambiando de perros, se lo paso al dummy
    const nextDog = (e,name) => {
        e.preventDefault()
@@ -34,10 +38,6 @@ const SingleDogCont = ({history, match}) => {
        ? currentDogIndex = currentDogIndex+1 
        : currentDogIndex = 0;
        dispatch(fetchDog(dogNames[currentDogIndex]))
-       .then(() => {
-           history.push(`/adoptar/${selectedDog.name}`)
-       })
-       return 
    }
   
   return (

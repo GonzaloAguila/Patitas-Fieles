@@ -11,13 +11,13 @@
     background-color: #ffffff;
     width: 20%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .sidebar-form-container {
-    padding: 1rem;
+    margin: 0 auto;
+    padding-bottom: 1rem;
     display: flex;
     height: 20%;
     justify-content: center;
@@ -25,11 +25,20 @@
     flex-direction: column;
 }
 
+.sidebar-form {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .sidebar-input {
-    margin: 1 rem;
     border: 2px solid black;
     border-radius: 10px;
+    padding: 0.4rem;
+    width: 150px;
 }
+
 
 .sidebar-filter-container {
     display: flex;
@@ -62,7 +71,7 @@
 
 
 .adoptar-card-container{
-  
+    text-align: center;
     width: 80%;
     margin-left: 4rem;
     margin: 2rem;
@@ -73,6 +82,7 @@
 }
 
 .adoptar-single-card {
+    max-height: 382px;
     background-color: #ffffff;
     border-radius: 0.7rem;
     margin: 0.5rem auto;
@@ -81,7 +91,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
 }
@@ -178,4 +187,13 @@
   .title-m {
     color: #43cffa;
     padding-left: 5px;
+  }
+
+  .form-cont {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-btn{
+    width: 50%;
   }
