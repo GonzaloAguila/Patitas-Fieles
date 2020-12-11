@@ -1,8 +1,8 @@
 # Patitas Fieles
 # Proyecto caritativo de práctica.
 ![alt text](https://i.imgur.com/0ypT1aS.png)
-![alt text](https://i.imgur.com/0ypT1aS.png)
 ![alt text](https://i.imgur.com/dTR1PbU.png)
+![alt text](https://i.imgur.com/P1Pd2ei.png)
 ![alt text](https://i.imgur.com/KuBmd2y.png)
 </br>
 </br>
