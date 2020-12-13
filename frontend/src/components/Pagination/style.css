@@ -1,0 +1,19 @@
+.pagination-ul {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.pagination-li {
+    padding: 0 12px;
+}
+
+.pagination-li a {
+    color: black;
+    font-weight: 500;
+    font-size: 30px;
+    text-decoration: none;
+}

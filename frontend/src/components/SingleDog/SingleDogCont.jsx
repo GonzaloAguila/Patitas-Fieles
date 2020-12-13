@@ -28,6 +28,9 @@ const SingleDogCont = ({history, match}) => {
      history.push(`/adoptar/${selectedDog.name}`)
   }, [selectedDog])
 
+
+
+
    //Array circular para ir cambiando de perros, se lo paso al dummy
    const nextDog = (e,name) => {
        e.preventDefault()
