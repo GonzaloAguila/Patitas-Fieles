@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import "./style.css"
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Pagination from "../Pagination/Pagination";
 
 const Adoptar = () => {
 
 const [loading, setLoading] = useState(true)
 const [input, setInput] = useState("")
+const [currentPage, setCurrentPage] = useState([1])//para hacer la pagination
+const [dogsPerPage] = useState([6])//cuantos perros muestro por pagina
 
 const dispatch = useDispatch();
 const { dogs } = useSelector((state) => state.dogsReducer); 
 
+//didMount
 useEffect(() => {
    if(loading){
    dispatch(fetchDogs())
@@ -61,7 +65,13 @@ const traerTodos = (e) => {
    }, 1000))
 }
 
-console.log(dogs)
+// LOGICA DEL PAGINATION
+const indexOfLastDog = currentPage * dogsPerPage
+const indexOfFirstDog = indexOfLastDog - dogsPerPage
+const currentDogs = dogs.slice(indexOfFirstDog, indexOfLastDog)
+const paginate = (pageNumber) => setCurrentPage(pageNumber)
+//
+
   return (
     <Fragment>
       <Navbar/>
@@ -88,14 +98,19 @@ console.log(dogs)
           </div>
         </div>
         <div className="adoptar-card-container">
-          {loading ? <p>Cargando..</p> :  
-          dogs[0].name ? dogs.map((dog) => {
+          {loading ? <div class="spinner-box">
+                       <div class="circle-border">
+                       <div class="circle-core"></div>
+                      </div>  
+                     </div> :  
+          currentDogs[0].name ? currentDogs.map((dog) => {
             return <div key={dog.id} className="adoptar-single-card">
                      <h3 className="adoptar-single-card-title">{dog.name}{dog.gender == "macho" ? <i class="fas fa-mars title-m"></i> : <i class="fas fa-venus title-f"></i>}</h3>
                       <img className="adoptar-img" src={dog.img}alt=""/>
                       <Link className="adoptar-btn" to={`/adoptar/${dog.name}`}>Ver Más</Link>
                       </div>
               }) : <h2>No se encontraron resultados.</h2>}
+         {/* {!loading ? <Pagination paginate={paginate} loading={loading} dogsPerPage={dogsPerPage} totalDogs={dogs.length}/>: null}      */}
         </div>
       </div>
       <Footer/>
