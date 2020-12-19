@@ -23,4 +23,16 @@ router.get("/:name", async (req,res) => {
               : res.send('No existe ningún perro con ese nombre')
 })
 
+//traer todas las hembras
+router.get("/getDogs/getFemaleDogs", async (req,res) => {
+    let allDogs = await Dog.find({gender : "hembra"})
+    res.send(allDogs)
+})
+
+//traer todos los machos
+router.get("/getDogs/getMaleDogs", async (req,res) => {
+    let allDogs = await Dog.find({gender : "macho"})
+    res.send(allDogs)
+})
+
 module.exports = router

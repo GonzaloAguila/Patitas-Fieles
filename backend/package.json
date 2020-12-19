@@ -11,6 +11,7 @@
     "url": "git+https://github.com/Gonzalitonnn2020/Patitas-Fieles"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",

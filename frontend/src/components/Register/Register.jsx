@@ -2,18 +2,17 @@ import Footer from "../Footer/Footer"
 import { Link } from "react-router-dom";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {fetchUser} from "../../../redux/action-creators/user-actions";
+import {fetchUser,createUser} from "../../../redux/action-creators/user-actions";
 import "./style.css"
 
-const Login = ({history}) => {
+const Register = ({history}) => {
 
   const dispatch = useDispatch();
-
   const [inputs, setInputs] = useState({
-      name: "",
+      email: "",
       password: "",
+      name: "",
     });
-
   const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
@@ -21,30 +20,31 @@ const Login = ({history}) => {
       setInputs({ ...inputs, [e.target.name]: e.target.value });
     };  
 
-  const handleSubmit = (e,loggedUser) => {
+  const handleSubmit = (e,user) => {
       e.preventDefault()
       setLoading(true)
-      dispatch(fetchUser(loggedUser))
-      .then(() => {
+      localStorage.clear()
+      dispatch(createUser(user)).then(() => {
         setTimeout(() => {
-          setInputs({name : "", password: ""});  
           setLoading(false)
-          history.push("/adoptar")
-
-        },1000)
-      })
-  }
+          history.push("/login")
+        }, 5000)
+      })}
 
   return (
     <Fragment>
      <div className="box">
        <div className="imgBx">
-        <img src="https://images.pexels.com/photos/3790942/pexels-photo-3790942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
+        <img src="https://images.pexels.com/photos/1149826/pexels-photo-1149826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
        </div>
        <div className="contentBx">
         <div className="formBx">
-          <h2>Login</h2>
-          <form onSubmit={(e)=> handleSubmit(e,inputs)} action="">
+          <h2>Registrarse</h2>
+          <form onSubmit={(e)=>handleSubmit(e,inputs)}>
+          <div className="inputBx">
+              <span>Email</span>
+              <input onChange={handleChange} type="email" name="email" required/>
+            </div>
             <div className="inputBx">
               <span>Usuario</span>
               <input onChange={handleChange} type="text" name="name" required/>
@@ -54,19 +54,19 @@ const Login = ({history}) => {
               <input onChange={handleChange} type="password" name="password" required/>
             </div>
             <div className="remember">
-              <label><input type="checkbox" name=""/>Recordarme</label>
+              <label><input type="checkbox" name="" required/> Acepto términos y condiciones.</label>
             </div>
             <div className="inputBx">
-              <input type="submit" value="Ingresar"/>
+              <input type="submit" value="Crear Cuenta"/>
             </div>
             <div className="inputBx">
-              <p>¿No tenés una cuenta? <Link to="/register">Registrarse</Link></p> 
+              <p>¿Ya tenés cuenta? <Link to="/login">Logearse</Link></p> 
             </div>
           </form>
           {loading ? <h3>CARGANDO...</h3>
            :
            <div>
-            <h3>Logearse con:</h3>
+            <h3>Registrarse con:</h3>
             <ul className="sci">
               <li></li>
               <li></li>
@@ -81,4 +81,4 @@ const Login = ({history}) => {
   );
 };
 
-export default Login;
+export default Register;

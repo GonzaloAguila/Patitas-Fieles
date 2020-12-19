@@ -4,22 +4,18 @@ const morgan = require("morgan");
 const api = require("./api/routes");
 const app = express();
 const db = require("./db");
-
+const User = require("./models/users")
+const bcrypt = require('bcrypt')
 // Passport
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const sessions = require("express-session");
-const localStrategy = require("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 
 //MongoAtlas connection
 const connectDB = require("./db")
 connectDB()
 //
-
-app.use(express.static(path.join(__dirname, "/public")));
-app.use(express.json({ extended: false}));
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 app.use(
   sessions({
@@ -28,47 +24,55 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.json({ extended: false}));
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser("patitas"));
+
+
 
 passport.use(
-  new localStrategy(
+  new LocalStrategy(
     {
-      usernameField: "email",
+      usernameField: "name",
       passwordField: "password",
     },
-    function (email, password, done) {
-      User.findOne({ where: { email } })
+    function (name, password, done) {
+      User.findOne({name: name})
         .then((user) => {
           if (!user) {
-            // email not found
+            // user not found
             return done(null, false);
           }
-          user.hash(password, user.salt).then((hash) => {
-            if (hash !== user.password) {
-              return done(null, false); // wrong password
-            }
+          bcrypt.compare(password, user.password, (err, isMatch) => {
+            if(err) throw err
 
-            return done(null, user); // success :D
-          });
+            if(isMatch){
+              return done(null,user)
+            }else{
+              return done(null,false, {message: 'Password incorrecto'})
+            }
+          })
         })
-        .catch(done); // done(err)
+    .catch(done); // done(err)
     }
   )
 );
 
 passport.serializeUser(function (user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
-
 passport.deserializeUser(function (id, done) {
-  User.findByPk(id)
+  User.findById({_id : id})
     .then((user) => {
       done(null, user);
     })
-    .catch(done);
+ .catch(done);
 });
-
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 app.use(morgan("tiny"));
 app.use("/api", api);
 

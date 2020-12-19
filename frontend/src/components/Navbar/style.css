@@ -114,3 +114,40 @@
   padding: 8px;
   margin: 0 5px;
 }
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.wallet-container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  font-size: 17px;
+}
+
+.welcome-container > * {
+  padding: 3px;
+  font-weight: bold;
+  color: white;
+}
+
+.wallet{
+  color: #DBF4A7;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.logout{
+ font-size: 30px;
+ font-weight: bold;
+ cursor: pointer;
+ color: #aa0036;
+}
