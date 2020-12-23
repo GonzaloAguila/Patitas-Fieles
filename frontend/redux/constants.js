@@ -7,4 +7,5 @@ export const FETCH_ONE_DOG = "FETCH_ONE_DOG"
 export const FETCH_USER = "FETCH_USER"
 export const CREATE_USER = "CREATE_USER"
 export const LOGGED_USER = "LOGGED_USER"
-export const UPDATE_WALLET = "UPDATE_WALLET"
+
+export const GET_DONATIONS = "GET_DONATIONS"

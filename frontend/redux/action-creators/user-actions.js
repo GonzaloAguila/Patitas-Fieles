@@ -3,16 +3,10 @@ import {
  FETCH_USER,
  CREATE_USER,
  LOGGED_USER,
- UPDATE_WALLET
   } from "../constants";
   
   const fetchUserCreator = (data) => ({ 
     type: FETCH_USER, 
-    data 
-  });
-
-  const updateWalletCreator = (data) => ({ 
-    type: UPDATE_WALLET, 
     data 
   });
   
@@ -45,7 +39,7 @@ export const checkUserStatus = () => (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
  return axios.post(`/api/users/auth/logout`)
- .then((res) => dispatch(checkUserStatusCreator({}))
+ .then(() => dispatch(checkUserStatusCreator({}))
 )};
 
 export const updateUserWallet = (user,tier) => (dispatch) => {

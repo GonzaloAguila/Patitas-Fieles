@@ -1,56 +1,64 @@
 
-.about-container{
-    
-    display: flex;
+.about-section{
+    background: url('https://images.pexels.com/photos/792775/pexels-photo-792775.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat left;
+    background-size: 60%;
     background-color: #d9dbf1;
-    height: 450px;
-}
-
-.about-img-container {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: 90%;
-}
-
-.about-img {
-    filter: invert(58%) sepia(8%) saturate(1502%) hue-rotate(195deg) brightness(89%) contrast(89%);
-    min-width: 100%;
-    min-height: 100%;
     overflow: hidden;
-    object-fit: contain;
+    padding: 100px 0;
+
 }
 
-.about-left{
-    width: 50%;
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.about-right{
-
-    letter-spacing: 1px;
-    padding: 5%;
-    font-weight: bold;
-    color: #7D84B2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 50%;
+.inner-container {
+    width: 55%;
+    float: right;
+    background-color: #ffffff;
+    padding: 150px;
 }
 
-.about-title {
-    font-weight: bolder;
-    font-size: 2.8rem;
-    padding-bottom: 10px;
+.inner-container h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
 }
 
 .about-text {
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-align: center;
+    font-size: 15px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
 
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+
+    .inner-container{
+        padding: 60px;
+    }
 }

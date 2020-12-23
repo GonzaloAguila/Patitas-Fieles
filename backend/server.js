@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const api = require("./api/routes");
 const app = express();
 const db = require("./db");
-const User = require("./models/users")
+const {User, Donation} = require("./models/users")
 const bcrypt = require('bcrypt')
 // Passport
 const cookieParser = require("cookie-parser");

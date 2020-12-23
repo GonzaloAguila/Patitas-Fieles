@@ -1,12 +1,16 @@
 const express = require("express");
-const User = require("../../models/users");
+const { User, Donation } = require("../../models/users");
 const router = express.Router();
 const passport = require("passport");
-const { update } = require("../../models/users");
 
 //postear un nuevo usuario
 router.post("/register", async (req, res) => {
-  let newUser = new User(req.body);
+  let newUser = new User({
+    name: req.body.name,
+    password: req.body.password,
+    email: req.body.email,
+    wallet: 10000
+  });
   await newUser.save();
   res.send(newUser);
 });
@@ -49,14 +53,39 @@ router.post("/auth/logout", (req, res) => {
 
 //compras
 router.put("/updatewallet", async (req, res) => {
-    if(req.body.wallet == 'gold'){
-       const updatedUser = await User.findOneAndUpdate({name: req.body.name}, {$inc: {wallet: -500}}, {new:true})
-       res.send(updatedUser)
-    }
-    if(req.body.wallet == 'silver'){
-        const updatedUser = await User.findOneAndUpdate({name: req.body.name}, {$inc: {wallet: -200}}, {new:true})
-        res.send(updatedUser)
-     }
+  if (req.body.wallet == "gold") {
+    const newDonation = await Donation.create({
+      type: req.body.wallet,
+      amount: 500,
+      name: req.body.name,
+    });
+
+    newDonation.save();
+
+    const updatedUser = await User.findOneAndUpdate(
+      { name: req.body.name },
+      { $inc: { wallet: -500 }, $push: { donations: newDonation } },
+      { new: true }
+    ).populate("donations");
+
+    res.send(updatedUser);
+  }
+
+  if (req.body.wallet == "silver") {
+    const newDonation = await Donation.create({
+      type: req.body.wallet,
+      amount: 200,
+      name: req.body.name,
+    });
+    newDonation.save();
+
+    const updatedUser = await User.findOneAndUpdate(
+      { name: req.body.name },
+      { $inc: { wallet: -200 }, $push: { donations: newDonation } },
+      { new: true }
+    ).populate("donations");
+    res.send(updatedUser);
+  }
 });
 
 module.exports = router;

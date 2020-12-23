@@ -125,3 +125,13 @@
   width: 30px;
   border: none;
 }
+
+.not-logged{
+  margin: 10px;
+  padding: 10px;
+}
+
+.not-logged h5{
+  color: #7d84b2;
+  font-weight: 900;
+}

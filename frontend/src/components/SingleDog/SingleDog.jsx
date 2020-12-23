@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {fetchDog} from "../../../redux/action-creators/dog-actions";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./style.css"
 
 
-const SingleDog = ({selectedDog, nextDog}) => {
-  console.log(selectedDog)
+const SingleDog = ({selectedDog, nextDog, loggedUser}) => {
+
+  console.log(loggedUser, 'log user')
+
   return (
     <Fragment>
       {selectedDog ?  
@@ -33,11 +33,17 @@ const SingleDog = ({selectedDog, nextDog}) => {
           <h5>Dejanos tus datos y a la brevedad nos pondremos en contacto con vos
             para detallarte el proceso de adopción.
           </h5>
-          <form className="single-dog-form" action="">
-            <span>Teléfono</span><input type="text" name="" id=""/>
-            <span>Email</span><input type="email" name="" id=""/>
-          </form>
-          <button className="form-btn">Enviar</button>
+          {loggedUser.name ? <form className="single-dog-form" action="">
+             <span>Teléfono</span><input type="text" name="" id=""/>
+             <span>Email</span><input type="email" name="" id=""/>
+             <button className="form-btn">Enviar</button>
+           </form>
+          : 
+            <div className="not-logged">
+                <h5>Debes estar logeado para solicitar una adopción.</h5>
+               <Link to="/login" className="login">Log in</Link>
+           </div>
+          }
         </div>
     </section>
       : null}

@@ -1,40 +1,46 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { fetchDonations } from '../../../redux/action-creators/donations-actions'
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
-import {updateUserWallet} from "../../../redux/action-creators/user-actions"
+import { updateUserWallet } from "../../../redux/action-creators/user-actions"
 import patitas from "../../img/patitas.png";
 import "./style.css";
 
 const Donar = () => {
   const dispatch = useDispatch();
-  const [status, setStatus] = useState(false);
+  
+  const { loggedUser } = useSelector((state) => state.userReducer);
+  const { allDonations } = useSelector((state) => state.donationsReducer)
 
-  const {loggedUser} = useSelector((state) => state.userReducer);
+
+  useEffect(() => {
+    dispatch(fetchDonations()).then(({ data }) => {
+      console.log(data)
+    })
+  }, [])
 
   const handleDonation = (e, tier) => {
     e.preventDefault();
-    console.log('el tier en la funcion', tier)
     switch (tier) {
       case "silver":
-            if (loggedUser.wallet - 200 >= 0) {
-              dispatch(updateUserWallet(loggedUser.name, 'silver')).then(() => {
-                return alert("Compra exitosa. Gracias por tu colaboracion!");
-              });
-            } else {
-              return alert("No tienes suficiente dinero.");
-            }
-            break;
+        if (loggedUser.wallet - 200 >= 0) {
+          dispatch(updateUserWallet(loggedUser.name, 'silver')).then(() => {
+            return alert("Compra exitosa. Gracias por tu colaboracion!");
+          });
+        } else {
+          return alert("No tienes suficiente dinero.");
+        }
+        break;
       case "gold":
-            if (loggedUser.wallet - 500 >= 0) {
-              dispatch(updateUserWallet(loggedUser.name, 'gold')).then(() => {
-                return alert("Compra exitosa. Gracias por tu colaboracion!");
-              });
-            } else {
-              return alert("No tienes suficiente dinero.");
-            }
-            break;
+        if (loggedUser.wallet - 500 >= 0) {
+          dispatch(updateUserWallet(loggedUser.name, 'gold')).then(() => {
+            return alert("Compra exitosa. Gracias por tu colaboracion!");
+          });
+        } else {
+          return alert("No tienes suficiente dinero.");
+        }
+        break;
       default:
         "Compra incorrecta";
     }
@@ -55,20 +61,12 @@ const Donar = () => {
               </p>
               <span className="flip-card-front-span">Valor: $200</span>
               <button
-                disabled={status}
+                disabled={loggedUser.name ? false : true}
                 onClick={(e) => handleDonation(e, "silver")}
-                className="flip-btn adoptar-btn"
+                className={loggedUser.name ? "flip-btn adoptar-btn" : "flip-btn disabled"}
               >
                 COMPRAR
               </button>
-            </div>
-            <div className="flip-card-back">
-              <p>
-                "Two things are infinite: the universe and human stupidity; and
-                I'm not sure about the universe."
-                <span>- Albert Einstein -</span>
-              </p>
-              <button className="flip-btn">flip</button>
             </div>
           </div>
 
@@ -82,31 +80,41 @@ const Donar = () => {
               </p>
               <span className="flip-card-front-span">Valor: $500</span>
               <button
-                disabled={status}
+                disabled={loggedUser.name ? false : true}
                 onClick={(e) => handleDonation(e, "gold")}
-                className="flip-btn adoptar-btn"
+                className={loggedUser.name ? "flip-btn adoptar-btn" : "flip-btn disabled"}
               >
                 COMPRAR
               </button>
-            </div>
-            <div className="flip-card-back">
-              <p>
-                "Two things are infinite: the universe and human stupidity; and
-                I'm not sure about the universe."
-                <span>- Albert Einstein -</span>
-              </p>
-              <button className="flip-btn">flip</button>
             </div>
           </div>
         </div>
       </div>
 
       <div className="donaciones-recibidas">
-        <h2>DONACIONES RECIBIDAS</h2>
+        <h2>Colaboraciones Anteriores:</h2>
       </div>
 
       <div className="list-container">
-        <div className="list-inner-container"></div>
+        <div className="list-inner-container">
+          {allDonations.length > 0 ? allDonations.map((don) => {
+            return <Fragment>
+              {don.type == 'gold' ?
+                <div className='donation-c'>
+                  <h5>Patita de Oro</h5>
+                  <img className="donation-img-gold" src={patitas}></img>
+                  <span className='donation-span'><strong>Colaborador:</strong></span> <p className="donator">{don.name}</p>
+                </div>
+                :
+                <div className='donation-c'>
+                  <h5>Patita de Plata</h5>
+                  <img className="donation-img-silver" src={patitas}></img>
+                  <span className='donation-span'><strong>Colaborador:</strong></span> <p className="donator">{don.name}</p>
+                </div>
+              }
+            </Fragment>
+          }) : <p>Todavia no realizaste ninguna donacion.</p>}
+        </div>
       </div>
       <Footer />
     </Fragment>

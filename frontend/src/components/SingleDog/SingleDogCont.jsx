@@ -1,21 +1,19 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import SingleDog from "./SingleDog"
 import "./style.css"
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import patitas from "../../img/patitas.png"
 import {fetchDogs} from "../../../redux/action-creators/dog-actions";
 import {fetchDog} from "../../../redux/action-creators/dog-actions";
 import regeneratorRuntime from "regenerator-runtime";
 
 
 const SingleDogCont = ({history, match}) => {
-
-  const { dogs } = useSelector((state) => state.dogsReducer); 
-  const { selectedDog } = useSelector((state) => state.dogsReducer);
+  
   const dispatch = useDispatch()
+  const { dogs,selectedDog } = useSelector((state) => state.dogsReducer); 
+  const { loggedUser } = useSelector((state) => state.userReducer);
 
   useEffect(() => {
     dispatch(fetchDogs()).then(() => {
@@ -44,7 +42,7 @@ const SingleDogCont = ({history, match}) => {
   return (
     <Fragment>
         <Navbar/>
-        <SingleDog history={history} dogs={dogs} selectedDog={selectedDog} nextDog={nextDog}/>
+        <SingleDog history={history} dogs={dogs} selectedDog={selectedDog} nextDog={nextDog} loggedUser={loggedUser}/>
         <Footer/>
     </Fragment>
   );

@@ -3,6 +3,19 @@ const bcrypt = require("bcrypt")
 const SALT_WORK_FACTOR = 10;
 
 
+const donation = new mongoose.Schema({
+    type:{
+        type:String
+    },
+    amount: {
+        type:Number
+    },
+    name: {
+        type:String
+    }
+})
+
+
 const user = new mongoose.Schema({
     name: {
         type:String,
@@ -18,7 +31,12 @@ const user = new mongoose.Schema({
     },
     wallet: {
         type:Number
-    }
+    },
+    donations: [
+        {type: mongoose.Schema.Types.ObjectId,
+        ref: 'donation'
+    }]
+        
 })
 
 user.pre('save', function(next) {
@@ -46,5 +64,7 @@ user.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
+const User = mongoose.model("user", user)
+const Donation = mongoose.model("donation", donation)
 
-module.exports = User = mongoose.model("user", user)
+module.exports = {User,Donation}
